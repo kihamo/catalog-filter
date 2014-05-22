@@ -40,7 +40,7 @@ class Application
     }
 
     // web
-    $path = explode('/', trim($_SERVER['PATH_INFO'], '/'));
+    $path = explode('/', trim(isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '', '/'));
     $path = array_filter($path);
 
     $action = isset($path[0]) ? strtolower($path[0]) : 'index';
